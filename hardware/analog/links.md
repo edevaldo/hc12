@@ -37,3 +37,8 @@
 [Know the sometimes-surprising interactions in modelling a capacitor-bypass network](https://www.planetanalog.com/know-the-sometimes-surprising-interactions-in-modelling-a-capacitor-bypass-network/)
 [The ADLE Booklist : Version 1](https://www.planetanalog.com/the-adle-booklist-version-1/)
 [Analog Integration: What Is It & How Shall We Talk About It?](https://www.planetanalog.com/analog-integration-what-is-it-how-shall-we-talk-about-it/)
+
+# Analog Articles to Check:
+[Sample multiple channels ‘simultaneously’ with a single ADC](https://www.eenewseurope.com/en/sample-multiple-channels-simultaneously-with-a-single-adc/)
+[Alias, damned alias and statistics](https://www.planetanalog.com/alias-damned-alias-and-statistics/)
+[Yes, There is Such a Thing as First Harmonic Distortion](https://www.planetanalog.com/yes-there-is-such-a-thing-as-first-harmonic-distortion/)
