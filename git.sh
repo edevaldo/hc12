@@ -41,3 +41,9 @@ https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a
 https://gist.github.com/xirixiz/b6b0c6f4917ce17a90e00f9b60566278
 https://docs.github.com/en/get-started/git-basics/managing-remote-repositories
 
+# Help:
+# Lists all commands
+git help -a
+# Lists concepts, tutorials a guides:
+git help -g
+
