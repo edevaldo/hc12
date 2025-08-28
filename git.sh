@@ -46,4 +46,6 @@ https://docs.github.com/en/get-started/git-basics/managing-remote-repositories
 git help -a
 # Lists concepts, tutorials a guides:
 git help -g
+#
+git help everyday
 
