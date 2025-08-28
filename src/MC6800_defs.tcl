@@ -3276,7 +3276,7 @@ set Instructions_6803 {
                Oper: {}
     }
     {
-        Instruction: SUBB
+        Instruction: SUBD
            AddrMode: EXTEND
              Opcode: 0xB3
              Cycles: 6
@@ -5354,7 +5354,7 @@ set Instructions_6303 {
                Oper: {}
     }
     {
-        Instruction: SUBB
+        Instruction: SUBD
            AddrMode: EXTEND
              Opcode: 0xB3
              Cycles: 5
