@@ -62,6 +62,12 @@ regexp {([-+]?)(?:(\d*\.\d+|\d+\.|\d+(?=[eE]([-+]?\d+)))(?:[eE]([-+]?\d+))?)} +1
 regexp {([-+]?)(?:(\d*\.\d+|\d+\.|\d+(?=[eE]([-+]?\d+)))(?:[eE]([-+]?\d+))?)} 1e-100 match sign mant exp
 ```
 
+## Notacao de Engenharia:
+Com o usem unidades?
+- 3k3
+- 5M
+- 3.33u
+
 ## Hexadecimal:
 ```
     0[xX]\d+
