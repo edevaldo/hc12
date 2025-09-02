@@ -74,7 +74,9 @@ regexp {([-+]?)(?:(\d*\.\d+|\d+\.|\d+(?=[eE]([-+]?\d+)))(?:[eE]([-+]?\d+))?)} 1e
 
 ---
 
-# Markdown Tests:
+# Markdown Cheatsheet:
+Real time rendering on VSCode:  
+`<ctrl>-<shift>-P` -> `Markdown: Open Preview to the Side`
 
 ## Formating:
 _Italic_  
