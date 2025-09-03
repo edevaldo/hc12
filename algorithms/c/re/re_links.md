@@ -1,10 +1,19 @@
 
 # Links to Sites to Read:
 
+[A Regular Expression Matcher
+Code by Rob Pike
+Exegesis by Brian Kernighan](https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html)  
+[Tcl 8.6 RE syntax](https://www.tcl-lang.org/man/tcl8.6/TclCmd/re_syntax.htm#M19)  
+[CppCon 2016: Tim Shen “Regular Expressions in C++, Present and Future"](https://www.youtube.com/watch?v=N_rkHzhXueo&t=297s)  
+[How Do Regular Expressions Really Work?](https://www.youtube.com/watch?v=u01jb8YN2Lw)  
+[Implementing Regular Expressions](https://swtch.com/~rsc/regexp/)  
+[How A Regex Engine Works Internally By Default: Animated (2021)](https://www.youtube.com/watch?v=YBTvrkRg0FA&t=11s)  
 [Regular Expression Matching Can Be Simple And Fast
 (but is slow in Java, Perl, PHP, Python, Ruby, ...)](https://swtch.com/~rsc/regexp/regexp1.html)  
 [Beautiful Code](https://www.oreilly.com/library/view/beautiful-code/9780596510046/ch01.html)  
 [tiny-regex-c](https://github.com/kokke/tiny-regex-c)  
+[tiny-regex-c/re.c](https://github.com/kokke/tiny-regex-c/blob/master/re.c)  
 [Gnu Libc - Infinity and NaN](https://www.gnu.org/s/libc/manual/html_node/Infinity-and-NaN.html)  
 [Build a Regex Engine in Less than 40 Lines of Code](https://nickdrane.com/build-your-own-regex/)  
 [cl-ppcre](https://github.com/edicl/cl-ppcre)  

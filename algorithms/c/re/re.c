@@ -185,6 +185,7 @@ int main( int argc, char** argv)
         [chars]  Bracketed expression. Maches any of chars in expression. Including ranges '-'.
         [^chars] Bracketed expression. Matches any char not in expression. Including ranges '-'.
         \char    Interpret special char as a regular character.
+        \n       back reference
         {        When not followed by a digit matches the '{'character.
         char    Matches character.
         Case insensitive matching.
@@ -210,6 +211,8 @@ int main( int argc, char** argv)
         \D Marches a non-digit character.
         \S Match a non-space character.
         \W [^_0-9a-zA-Z]
+
+        \mnn A back reference.
 
         [:alpha:] [:upper:] [:lower:] [:digit:] [:xdigit:] [:alnum:]
         [:print:] [:blank:] [:space:] [:punct:] [:graph:] [:cntrl:]
