@@ -9,6 +9,22 @@
 #define OPER_DIR_LEFT  0
 #define OPER_DIR_RIGHT 1
 
+/*
+ * To Do:
+ *     - rotates work for large rotation numbers and negatives.
+ *     - shl for negative numbers and 16 and larger does not work.
+ *     - shr for negative numbers and 16 and larger does not work.
+ *     - asr for negative numbers and 16 and larger does not work.
+ *     - bit reverse and shift right with optional add instruction.
+ *     - nibble swap operation?
+ * Ideas:
+ *     - bit reverse stages not controlled only by direction:
+ *         - brev <= sign(n) ^ ~OPER_DIR
+ *     - asr of a negative number needs to become a shl.
+ *     - asr of numbers 16 and larger should have all bits as I15.
+ *     - shr, shl of numbers 16 or larger should result in 0. 
+ */
+
 void set_zero( char* s)
 {
     *s++ = ' ';
@@ -84,7 +100,7 @@ void first_bs_stage( char vector[16][4], int oper, int amt)
         if( oper == OPER_ARITHMETIC_SHIFT)
         {
             for( int i = 15; i >= 8; i--)
-                copy( vector[i], vector[7]);
+                copy( vector[i], " -->");
         }
     }
 }
@@ -110,7 +126,7 @@ void second_bs_stage( char vector[16][4], int oper, int amt)
                 set_zero( vector[i]);
         if( oper == OPER_ARITHMETIC_SHIFT)
             for( int i = 15; i >= 12; i--)
-                copy( vector[i], vector[11]);
+                copy( vector[i], " -->");
     }
 }
 
@@ -135,7 +151,7 @@ void third_bs_stage( char vector[16][4], int oper, int amt)
                 set_zero( vector[i]);
         if( oper == OPER_ARITHMETIC_SHIFT)
             for( int i = 15; i >= 14; i--)
-                copy( vector[i], vector[13]);
+                copy( vector[i], " -->");
     }
 }
 
@@ -158,7 +174,7 @@ void fourth_bs_stage( char vector[16][4], int oper, int amt)
         if( oper == OPER_LOGICAL_SHIFT)
             set_zero( vector[15]);
         if( oper == OPER_ARITHMETIC_SHIFT)
-            copy( vector[15], vector[14]);
+            copy( vector[15], " -->");
     }
 }
 
