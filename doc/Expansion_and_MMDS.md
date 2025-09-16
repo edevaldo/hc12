@@ -8,7 +8,7 @@ Things that could be interesting to have in the expansion connector:
     - Have a drive open drain pin and a buffered reset line?
 * Clocks & Control:
     - E, EXTAL
-    - AD
+    - AS
     - RD/W̅R̅
     - ~NMI, ~INT
     - DMA requests & acks
