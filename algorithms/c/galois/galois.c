@@ -2,6 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+unsigned char galois28_multiply( unsigned char a, unsigned char b, int rpoly)
+{
+    unsigned char result = 0;
+
+    while (b)
+    {
+        result ^= a;
+        b = b >> 1;
+        a = (a & 0x80) ? (a << 1) ^ rpoly : a << 1; 
+    }
+    return result;
+}
+
 int main( int argc, char** argv)
 {
     int found;
