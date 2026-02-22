@@ -1,0 +1,43 @@
+TESTS := test1.sh test2.py test3.c
+FAILED_TESTS := failed_tests.txt
+PASSED_TESTS := passed_tests.txt
+ALL_TESTS := all_tests.txt
+
+.PHONY: all test clean
+
+all: test
+
+test: $(FAILED_TESTS) $(PASSED_TESTS)
+	@echo "--- Test Summary ---"
+	@if [ -s $(FAILED_TESTS) ]; then \
+		echo "Some tests failed. Failed tests are listed in $(FAILED_TESTS)"; \
+		echo "Passed tests are listed in $(PASSED_TESTS)"; \
+		exit 1; \
+	else \
+		echo "All tests passed!"; \
+		exit 0; \
+	fi
+
+$(FAILED_TESTS): $(ALL_TESTS)
+	@rm -f $@
+	@for t in $(TESTS); do \
+		./$$t >/dev/null 2>&1; \
+		if [ $$? -ne 0 ]; then \
+			echo $$t >> $@; \
+		fi; \
+	done
+
+$(PASSED_TESTS): $(ALL_TESTS)
+	@rm -f $@
+	@for t in $(TESTS); do \
+		./$$t >/dev/null 2>&1; \
+		if [ $$? -eq 0 ]; then \
+			echo $$t >> $@; \
+		fi; \
+	done
+
+$(ALL_TESTS):
+	@# This target is for dependency tracking and doesn't do anything itself.
+
+clean:
+	rm -f $(FAILED_TESTS) $(PASSED_TESTS) $(ALL_TESTS)

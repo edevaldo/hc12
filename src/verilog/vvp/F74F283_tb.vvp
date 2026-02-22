@@ -1,0 +1,145 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "MAXIMUM";
+:vpi_time_precision - 10;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_000001f3e40f9820 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001f3e40fb400 .scope module, "tb" "tb" 3 5;
+ .timescale -9 -10;
+v000001f3e4104a10_0 .var "a", 3 0;
+v000001f3e41041f0_0 .var "b", 3 0;
+v000001f3e4104330_0 .var "ci", 0 0;
+v000001f3e4104470_0 .net "co", 0 0, L_000001f3e40f8200;  1 drivers
+v000001f3e4104ab0_0 .net "s", 3 0, L_000001f3e40f8510;  1 drivers
+S_000001f3e286e490 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 3 19, 3 19 0, S_000001f3e40fb400;
+ .timescale -9 -10;
+v000001f3e40d31d0_0 .var/i "i", 31 0;
+S_000001f3e286e620 .scope begin, "$ivl_for_loop1" "$ivl_for_loop1" 3 20, 3 20 0, S_000001f3e286e490;
+ .timescale -9 -10;
+v000001f3e40fb590_0 .var/i "j", 31 0;
+S_000001f3e4103930 .scope module, "dut" "F74F283" 3 9, 4 2 0, S_000001f3e40fb400;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "ci";
+    .port_info 3 /OUTPUT 4 "s";
+    .port_info 4 /OUTPUT 1 "co";
+L_000001f3e40f8350/d .functor BUF 1, v000001f3e4104330_0, C4<0>, C4<0>, C4<0>;
+L_000001f3e40f8350 .delay 1 (60,60,60) L_000001f3e40f8350/d;
+L_000001f3e40f84a0/d .functor BUF 4, v000001f3e4104a10_0, C4<0000>, C4<0000>, C4<0000>;
+L_000001f3e40f84a0 .delay 4 (60,60,60) L_000001f3e40f84a0/d;
+L_000001f3e40f8820/d .functor BUF 4, v000001f3e41041f0_0, C4<0000>, C4<0000>, C4<0000>;
+L_000001f3e40f8820 .delay 4 (60,60,60) L_000001f3e40f8820/d;
+L_000001f3e40f8510/d .functor BUF 4, L_000001f3e4103d90, C4<0000>, C4<0000>, C4<0000>;
+L_000001f3e40f8510 .delay 4 (45,45,45) L_000001f3e40f8510/d;
+L_000001f3e40f8200/d .functor BUF 1, L_000001f3e4103e30, C4<0>, C4<0>, C4<0>;
+L_000001f3e40f8200 .delay 1 (25,25,25) L_000001f3e40f8200/d;
+L_000001f3e4158038 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001f3e40d35a0_0 .net/2u *"_ivl_0", 0 0, L_000001f3e4158038;  1 drivers
+v000001f3e286e7b0_0 .net *"_ivl_10", 4 0, L_000001f3e4103c50;  1 drivers
+L_000001f3e41580c8 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v000001f3e286e850_0 .net *"_ivl_13", 3 0, L_000001f3e41580c8;  1 drivers
+v000001f3e4103ac0_0 .net *"_ivl_17", 3 0, L_000001f3e4103d90;  1 drivers
+v000001f3e4103b60_0 .net *"_ivl_19", 0 0, L_000001f3e4103e30;  1 drivers
+v000001f3e41048d0_0 .net *"_ivl_2", 4 0, L_000001f3e4104510;  1 drivers
+L_000001f3e4158080 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001f3e41046f0_0 .net/2u *"_ivl_4", 0 0, L_000001f3e4158080;  1 drivers
+v000001f3e4104790_0 .net *"_ivl_6", 4 0, L_000001f3e4104b50;  1 drivers
+v000001f3e4104290_0 .net *"_ivl_8", 4 0, L_000001f3e41045b0;  1 drivers
+v000001f3e4103f70_0 .net "a", 3 0, v000001f3e4104a10_0;  1 drivers
+v000001f3e4104970_0 .net "a_dlyd", 3 0, L_000001f3e40f84a0;  1 drivers
+v000001f3e4103ed0_0 .net "b", 3 0, v000001f3e41041f0_0;  1 drivers
+v000001f3e4104650_0 .net "b_dlyd", 3 0, L_000001f3e40f8820;  1 drivers
+v000001f3e4104010_0 .net "ci", 0 0, v000001f3e4104330_0;  1 drivers
+v000001f3e41040b0_0 .net "ci_dlyd", 0 0, L_000001f3e40f8350;  1 drivers
+v000001f3e4104150_0 .net "co", 0 0, L_000001f3e40f8200;  alias, 1 drivers
+v000001f3e4104830_0 .net "s", 3 0, L_000001f3e40f8510;  alias, 1 drivers
+v000001f3e41043d0_0 .net "sum", 4 0, L_000001f3e4103cf0;  1 drivers
+L_000001f3e4104510 .concat [ 4 1 0 0], L_000001f3e40f84a0, L_000001f3e4158038;
+L_000001f3e4104b50 .concat [ 4 1 0 0], L_000001f3e40f8820, L_000001f3e4158080;
+L_000001f3e41045b0 .arith/sum 5, L_000001f3e4104510, L_000001f3e4104b50;
+L_000001f3e4103c50 .concat [ 1 4 0 0], L_000001f3e40f8350, L_000001f3e41580c8;
+L_000001f3e4103cf0 .arith/sum 5, L_000001f3e41045b0, L_000001f3e4103c50;
+L_000001f3e4103d90 .part L_000001f3e4103cf0, 0, 4;
+L_000001f3e4103e30 .part L_000001f3e4103cf0, 4, 1;
+    .scope S_000001f3e40fb400;
+T_0 ;
+    %vpi_call/w 3 12 "$display", "\012", "F74F283_tb.sv", " - Starting simulation." {0 0 0};
+    %vpi_call/w 3 13 "$dumpfile", "./vcd/F74F283_tb.vcd" {0 0 0};
+    %vpi_call/w 3 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001f3e40fb400 {0 0 0};
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000001f3e4104a10_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000001f3e41041f0_0, 0, 4;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f3e4104330_0, 0, 1;
+    %fork t_1, S_000001f3e286e490;
+    %jmp t_0;
+    .scope S_000001f3e286e490;
+t_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001f3e40d31d0_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v000001f3e40d31d0_0;
+    %cmpi/s 16, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %fork t_3, S_000001f3e286e620;
+    %jmp t_2;
+    .scope S_000001f3e286e620;
+t_3 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001f3e40fb590_0, 0, 32;
+T_0.2 ;
+    %load/vec4 v000001f3e40fb590_0;
+    %cmpi/s 16, 0, 32;
+    %jmp/0xz T_0.3, 5;
+    %load/vec4 v000001f3e40d31d0_0;
+    %pad/s 4;
+    %store/vec4 v000001f3e4104a10_0, 0, 4;
+    %load/vec4 v000001f3e40fb590_0;
+    %pad/s 4;
+    %store/vec4 v000001f3e41041f0_0, 0, 4;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f3e4104330_0, 0, 1;
+    %delay 200, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f3e4104330_0, 0, 1;
+    %delay 200, 0;
+    %load/vec4 v000001f3e40fb590_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001f3e40fb590_0, 0, 32;
+    %jmp T_0.2;
+T_0.3 ;
+    %end;
+    .scope S_000001f3e286e490;
+t_2 %join;
+    %load/vec4 v000001f3e40d31d0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001f3e40d31d0_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .scope S_000001f3e40fb400;
+t_0 %join;
+    %delay 200, 0;
+    %vpi_call/w 3 31 "$display", "F74F283_tb.sv", " - Test complete!\012" {0 0 0};
+    %vpi_call/w 3 32 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000001f3e40fb400;
+T_1 ;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "F74F283_tb.sv";
+    "./F74F283.sv";

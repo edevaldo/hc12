@@ -1,0 +1,95 @@
+
+
+
+
+JMP 0xXXXX:
+                              IR <= DATA(0xCC); PC, M <= PC + 1;       # End of previous instruction
+                              PC <+ PC + 1;
+PC => DATA( tgt addr lsb) => TMP;     PC <= PC + 1;
+PC => DATA( tgt addr msb) => PC_hi, M_hi; TMP => PC_lo, M_lo 
+
+
+
+
+
+PC <= PC
+PC <= PC + 8-bit offset
+PC <= PC + 1
+PC <= {D[7:0],TMP[7:0]}
+
+M <= PC_next
+M <= cte
+M <= {D[7:0],TMP[7:0]}
+M <= {8'b0,TMP[7:0] or X or SP}
+# Need something else to do indexed 8-bit and 16-bit offsets
+
+
+
+Microcode
+
+IR[7:0],CNT[3:0],IRQ
+
+
+
+
+
+always @( PC_oper or PC) begin
+    case( PC_oper)
+        PC_OPER_HOLD: PC_next <= PC;
+        PC_OPER_INC:  PC_next <= PC + 1;
+        PC_OPER_OFFS: PC_next <= PC + {8{TMP_lo[7]},TMP_lo};
+        PC_OPER_LOAD: PC_next <= { TMP_hi, D[7:0]};
+        default:      PC_next <= PC;
+    endcase
+end
+
+always @(posedge clk) begin
+    PC <= PC_next;
+end
+
+
+ADD #ii
+(-1) Fetch 0xAB:          BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next;                      # Last Cycle of previous instruction
+( 0) Fetch ii:            BUS_READ; TMP_lo <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 1) Compute ADD & Fetch: BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next; A <= A + TMP_lo; Update Flags (HNZC);
+
+ADD dd
+(-1) Fetch 0xBB:          BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next;                      # Last Cycle of previous instruction
+( 0) Fetch dd:            BUS_READ; M <= {8'b0, D[7:0]};
+( 1) Read Operand:        BUS_READ; TMP_lo <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 2) Compute ADD & Fetch: BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next; A <= A + TMP_lo; Update Flags (HNZC);
+
+ADD hhll
+(-1) Fetch 0xCB:          BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next;                      # Last Cycle of previous instruction
+( 0) Fetch hh:            BUS_READ; TMP_hi <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 1) Fetch ll:            BUS_READ; M <= { TMP_hi, D[7:0]};
+( 2) Read Operand:        BUS_READ; TMP_lo <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 3) Compute ADD & Fetch: BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next; A <= A + TMP_lo; Update Flags (HNZC);
+
+ADD eeff,X
+(-1) Fetch 0xDB:          BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next;                      # Last Cycle of previous instruction
+( 0) Fetch ee:            BUS_READ; TMP_hi <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 1) Fetch ff:            BUS_READ; TMP_lo <= D[7:0];
+( 2) Compute EA:          BUS_IDLE; M <= {TMP_hi, TMP_lo} + {8'b0, X};
+( 3) Read Operand:        BUS_READ; TMP_lo <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 4) Compute ADD & Fetch: BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next; A <= A + TMP_lo; Update Flags (HNZC);
+
+ADD ff,X
+(-1) Fetch 0xEB:          BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next;                      # Last Cycle of previous instruction
+( 0) Fetch ff:            BUS_READ; TMP_lo <= D[7:0];
+( 1) Compute EA:          BUS_IDLE; M <= { 8'b0, TMP_lo} + {8'b0, X};
+( 2) Read Operand:        BUS_READ; TMP_lo <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 3) Compute ADD & Fetch: BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next; A <= A + TMP_lo; Update Flags (HNZC);
+
+ADD ,X
+(-1) Fetch 0xFB:          BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next;                      # Last Cycle of previous instruction
+( 0) Decode               BUS_IDLE; M <= {8'b0, X};
+( 1) Read Operand:        BUS_READ; TMP_lo <= D[7:0]; M <= PC;
+( 2) Compute ADD & Fetch: BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next; A <= A + TMP_lo; Update Flags (HNZC);
+
+BCC rr
+(-1) Fetch 0x24:          BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next;                      # Last Cycle of previous instruction
+( 0) Fetch rr:            BUS_READ; TMP_lo <= D[7:0]; PC <= PC_next; M <= PC_next;
+( 1) Compute dest         BUS_IDLE; if (C == 0) PC <= PC + {8{TMP_lo[7]}, TMP_lo} else PC_OPR_HOLD M_OPER_HOLD;
+( 2) Fetch:               BUS_READ; IR <= D[7:0]; PC <= PC_next; M <= PC_next; 
+

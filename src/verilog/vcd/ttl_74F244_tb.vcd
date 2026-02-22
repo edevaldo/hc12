@@ -1,0 +1,92 @@
+$date
+	Sun Feb 22 17:11:11 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module tb $end
+$var wire 4 ! y [3:0] $end
+$var reg 4 " d [3:0] $end
+$var reg 1 # nOE $end
+$scope module dut $end
+$var wire 4 $ D [3:0] $end
+$var wire 4 % Y [3:0] $end
+$var wire 1 # nOE $end
+$var wire 1 & nOEh $end
+$var wire 1 ' nOEl $end
+$var wire 4 ( y [3:0] $end
+$var wire 4 ) nDi [3:0] $end
+$var wire 4 * Di [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx *
+bx )
+bx (
+x'
+x&
+bx %
+b1010 $
+0#
+b1010 "
+bx !
+$end
+#10
+b1010 *
+b101 )
+#13
+0&
+#24
+0'
+#40
+bx (
+#43
+b1x1x !
+b1x1x %
+b1x1x (
+#54
+b1010 !
+b1010 %
+b1010 (
+#200
+1#
+#215
+1&
+1'
+#245
+bz !
+bz %
+bz (
+#400
+0#
+#413
+0&
+#424
+0'
+#443
+b1z1z !
+b1z1z %
+b1z1z (
+#454
+b1010 !
+b1010 %
+b1010 (
+#600
+b101 "
+b101 $
+#610
+b101 *
+b1010 )
+#640
+b101 !
+b101 %
+b101 (
+#800

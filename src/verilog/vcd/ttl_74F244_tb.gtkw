@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Sun Feb 22 17:06:56 2026
+[*]
+[dumpfile] "C:\cygwin64\home\nxa14976\verilog\vcd\ttl_74F244_tb.vcd"
+[dumpfile_mtime] "Sun Feb 22 11:04:08 2026"
+[dumpfile_size] 1060
+[savefile] "C:\cygwin64\home\nxa14976\verilog\vcd\ttl_74F244_tb.gtkw"
+[timestart] 0
+[size] 1746 1089
+[pos] -1 -1
+*-13.512680 67200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[sst_width] 197
+[signals_width] 128
+[sst_expanded] 1
+[sst_vpaned_height] 325
+@28
+tb.d[3:0]
+tb.dut.nDi[3:0]
+tb.dut.Di[3:0]
+@200
+-
+@28
+tb.nOE
+tb.dut.nOEh
+tb.dut.nOEl
+@200
+-
+@28
+tb.y[3:0]
+[pattern_trace] 1
+[pattern_trace] 0
